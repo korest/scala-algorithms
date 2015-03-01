@@ -1,4 +1,4 @@
-package com.korest.algorithm.insertionsort
+package com.korest.algorithm.sort.insertion
 
 import com.korest.algorithm._
 
@@ -13,11 +13,11 @@ object InsertionSort {
       }
     }
   }
-  
+
   def sortInt(arr: Array[Int]) {
     sort(arr, intComparator)
   }
-  
+
   def sortBinary[T](arr: Array[T], comparator: (T, T) => Boolean) = {
     for(i <- 1 to arr.length - 1) {
       var left = 0
@@ -36,9 +36,9 @@ object InsertionSort {
       }
     }
   }
-  
+
   def sortBinaryInt(arr: Array[Int]) = {
     sortBinary(arr, intComparator)
   }
-  
+
 }

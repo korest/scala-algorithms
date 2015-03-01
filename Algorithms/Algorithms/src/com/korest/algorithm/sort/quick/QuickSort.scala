@@ -1,10 +1,10 @@
-package com.korest.algorithm.quicksort
+package com.korest.algorithm.sort.quick
 
 import com.korest.algorithm._
 
 object QuickSort {
 
-  def quickSort[T](arr: Array[T], comparator: (T, T) => Boolean) = {
+  def sort[T](arr: Array[T], comparator: (T, T) => Boolean) = {
     def partition[T](p: Int, q: Int): Int = {
       val pivot = arr(q)
       var i = p - 1
@@ -20,18 +20,18 @@ object QuickSort {
       i
     }
   
-    def sort[T](arr: Array[T], p: Int, q: Int): Unit = {
+    def sortInternal[T](arr: Array[T], p: Int, q: Int): Unit = {
       if (p < q) {
         val i = partition(p, q)
-        sort(arr, p, i - 1)
-        sort(arr, i + 1, q)
+        sortInternal(arr, p, i - 1)
+        sortInternal(arr, i + 1, q)
       }
     }
-    
-    sort(arr, 0, arr.length - 1)
+
+    sortInternal(arr, 0, arr.length - 1)
   }
   
-  def quickSortInt(arr: Array[Int]) = {
-    quickSort(arr, intComparator)
+  def sortInt(arr: Array[Int]) = {
+    sort(arr, intComparator)
   }
 }
