@@ -6,4 +6,5 @@ Few algorithms in scala
 - Quick sort
 - Merge sort
 - Heap sort
-- Hashtale
+- Hashtable
+- Binary search tree
