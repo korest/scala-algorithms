@@ -8,3 +8,4 @@ Few algorithms in scala
 - Heap sort
 - Hashtable
 - Binary search tree
+- Skip list

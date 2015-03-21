@@ -94,13 +94,13 @@ object BinarySearchTreeTest {
     tree.remove(testData(4))
 
     if(tree.find(testData(0))) {
-      println("Failed element should be removed: 0")
+      println("Failed element should be removed: " + testData(0))
     }
     if(tree.find(testData(3))) {
-      println("Failed element should be removed: 0")
+      println("Failed element should be removed: " + testData(3))
     }
     if(tree.find(testData(4))) {
-      println("Failed element should be removed: 0")
+      println("Failed element should be removed: " + testData(4))
     }
   }
 }
