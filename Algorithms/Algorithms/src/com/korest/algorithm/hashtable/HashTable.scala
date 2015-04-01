@@ -7,7 +7,7 @@ object HashTable {
   val LOAD_FACTOR = 0.75
 }
 
-class HashTable[K: ClassTag, V](var size: Int = HashTable.DEFAULT_SIZE) {
+class HashTable[K <% Comparable[K]: ClassTag, V](var size: Int = HashTable.DEFAULT_SIZE) {
 
   case class Entry[K, V](key: K, var value: V, var next: Entry[K, V])
 
@@ -23,11 +23,11 @@ class HashTable[K: ClassTag, V](var size: Int = HashTable.DEFAULT_SIZE) {
       count += 1
     } else {
 
-      while (entry.next != null && !entry.key.equals(key)) {
+      while (entry.next != null && entry.key.compareTo(key) != 0) {
         entry = entry.next
       }
 
-      if (!entry.key.equals(key)) {
+      if (entry.key.compareTo(key) != 0) {
         entry.next = Entry(key, value, null)
         count += 1
       } else {
@@ -47,7 +47,7 @@ class HashTable[K: ClassTag, V](var size: Int = HashTable.DEFAULT_SIZE) {
 
     if (entry != null) {
       while (entry != null && result == null) {
-        if (entry.key.equals(key)) {
+        if (entry.key.compareTo(key) == 0) {
           result = entry.value
         } else {
           entry = entry.next
@@ -64,12 +64,12 @@ class HashTable[K: ClassTag, V](var size: Int = HashTable.DEFAULT_SIZE) {
     var result = false
 
     if (entry != null) {
-      if (entry.key.equals(key)) {
+      if (entry.key.compareTo(key) == 0) {
         buckets(position) = entry.next
         count -= 1
         result = true
       } else {
-        while (entry.next != null && !entry.next.key.equals(key)) {
+        while (entry.next != null && entry.next.key.compareTo(key) != 0) {
           entry = entry.next
         }
 

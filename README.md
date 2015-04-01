@@ -9,3 +9,5 @@ Few algorithms in scala
 - Hashtable
 - Binary search tree
 - Skip list
+- Breadth first search
+- Depth first search
